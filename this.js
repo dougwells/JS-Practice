@@ -40,6 +40,16 @@ var savvy = {
         nestedFn();
      }
 };
+
+//Note, if we define a new fn (linda.printThis) with doug.printThis,
+// linda.printThis picks up this from were it is defined (linda object)
+var linda = {
+  name: "Linda",
+  printThis: doug.printThis
+};
+console.log("---- Linda Object ----")
+linda.printThis();
+
 savvy.printThis();
 console.log("---- Bind this to sierra object");
 sierra.printThis.call(1);     //bind "this" to sierra object
